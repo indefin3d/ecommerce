@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronRight, ShoppingBag } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 function formatPrice(value) {
   return new Intl.NumberFormat('pt-BR', {
@@ -26,10 +27,10 @@ export function CartPreview({ items, isOpen, onToggle }) {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, x: 24 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 24 }}
-            className="fixed bottom-20 right-4 z-40 w-[calc(100%-2rem)] max-w-sm rounded-[2rem] border border-slate-200/80 bg-white/96 p-5 shadow-[0_30px_80px_rgba(15,23,42,0.16)] backdrop-blur-xl lg:bottom-6 lg:right-6"
+            initial={{ opacity: 0, y: -12, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -12, scale: 0.98 }}
+            className="fixed right-4 top-20 z-40 w-[calc(100%-2rem)] max-w-sm rounded-[2rem] border border-slate-200/80 bg-white/96 p-5 shadow-[0_30px_80px_rgba(15,23,42,0.16)] backdrop-blur-xl lg:right-6 lg:top-24"
           >
             <div className="flex items-center justify-between">
               <div>
@@ -67,12 +68,12 @@ export function CartPreview({ items, isOpen, onToggle }) {
                 <span className="text-slate-300">Subtotal</span>
                 <span className="text-lg font-semibold text-white">{formatPrice(subtotal)}</span>
               </div>
-              <button
-                type="button"
+              <Link
+                to="/loja-demo/checkout"
                 className="mt-4 inline-flex w-full items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-950"
               >
                 Finalizar compra
-              </button>
+              </Link>
             </div>
           </motion.div>
         )}

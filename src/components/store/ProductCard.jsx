@@ -1,12 +1,19 @@
 import { motion } from 'framer-motion'
-import { ShoppingCart, Star } from 'lucide-react'
+import { CreditCard, ShoppingCart, Star } from 'lucide-react'
 
 function formatPrice(value) {
   return new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL',
-    maximumFractionDigits: 0,
   }).format(value)
+}
+
+function PixMark() {
+  return (
+    <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500/14 text-[10px] font-bold text-emerald-700">
+      P
+    </span>
+  )
 }
 
 export function ProductCard({ product, onAddToCart }) {
@@ -29,9 +36,10 @@ export function ProductCard({ product, onAddToCart }) {
       </div>
 
       <div className="p-6">
-        <p className="text-sm text-slate-500">{product.category}</p>
+        <p className="text-xs font-medium uppercase tracking-[0.18em] text-slate-400">{product.category}</p>
         <h3 className="mt-2 text-xl font-semibold text-slate-950">{product.name}</h3>
         <p className="mt-3 text-sm leading-7 text-slate-500">{product.description}</p>
+
         <div className="mt-4 flex items-center gap-1">
           {Array.from({ length: 5 }).map((_, index) => (
             <Star
@@ -43,12 +51,37 @@ export function ProductCard({ product, onAddToCart }) {
           ))}
           <span className="ml-2 text-sm text-slate-500">({product.rating}.0)</span>
         </div>
-        <div className="mt-5 flex items-end gap-3">
-          <p className="text-2xl font-semibold text-slate-950">{formatPrice(product.price)}</p>
-          {product.oldPrice && (
-            <p className="pb-1 text-sm text-slate-400 line-through">{formatPrice(product.oldPrice)}</p>
-          )}
+
+        <div className="mt-5">
+          <div className="flex items-end gap-3">
+            <p className="text-[1.65rem] font-semibold leading-none text-slate-950">
+              {formatPrice(product.price)}
+            </p>
+            {product.oldPrice && (
+              <p className="pb-1 text-sm text-slate-400 line-through">{formatPrice(product.oldPrice)}</p>
+            )}
+          </div>
+
+          <div className="mt-3 space-y-2 text-sm text-slate-500">
+            <div className="flex items-center gap-2">
+              <PixMark />
+              <span>
+                <span className="font-medium text-slate-700">{formatPrice(product.pixPrice)}</span> no PIX
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CreditCard className="h-4 w-4 text-slate-400" />
+              <span>
+                ou {product.installments}x de{' '}
+                <span className="font-medium text-slate-700">
+                  {formatPrice(product.installmentValue)}
+                </span>{' '}
+                com juros
+              </span>
+            </div>
+          </div>
         </div>
+
         <button
           type="button"
           onClick={() => onAddToCart(product)}

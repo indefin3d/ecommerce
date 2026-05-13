@@ -66,7 +66,7 @@ export function CheckoutPreview({ items }) {
                 </div>
               </div>
               <div className="mt-6 grid gap-4 md:grid-cols-2">
-                {['CEP', 'Endereco', 'Numero', 'Complemento', 'Cidade', 'Estado'].map((field) => (
+                {['CEP', 'Endereço', 'Número', 'Complemento', 'Cidade', 'Estado'].map((field) => (
                   <label key={field} className="block">
                     <span className="mb-2 block text-sm font-medium text-slate-700">{field}</span>
                     <input

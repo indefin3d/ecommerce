@@ -1,7 +1,6 @@
 import { useMemo, useState } from 'react'
 import { CategoryGrid } from '../components/store/CategoryGrid'
 import { CartPreview } from '../components/store/CartPreview'
-import { CheckoutPreview } from '../components/store/CheckoutPreview'
 import { ProductGrid } from '../components/store/ProductGrid'
 import { StoreFooter } from '../components/store/StoreFooter'
 import { StoreHeader } from '../components/store/StoreHeader'
@@ -10,7 +9,7 @@ import { initialCartItems } from '../data/storeProducts'
 
 export function StoreDemoPage() {
   const [cartItems, setCartItems] = useState(initialCartItems)
-  const [cartOpen, setCartOpen] = useState(true)
+  const [cartOpen, setCartOpen] = useState(false)
 
   function handleAddToCart(product) {
     setCartItems((currentItems) => {
@@ -43,15 +42,22 @@ export function StoreDemoPage() {
 
   return (
     <div className="min-h-screen bg-[linear-gradient(180deg,#fffdf8_0%,#ffffff_25%,#faf7f2_68%,#f8fafc_100%)] text-slate-950">
-      <StoreHeader cartCount={cartCount} />
+      <StoreHeader
+        cartCount={cartCount}
+        cartOpen={cartOpen}
+        onCartClick={() => setCartOpen((open) => !open)}
+      />
       <main>
         <StoreHero />
         <CategoryGrid />
         <ProductGrid onAddToCart={handleAddToCart} />
-        <CheckoutPreview items={cartItems} />
       </main>
       <StoreFooter />
-      <CartPreview items={cartItems} isOpen={cartOpen} onToggle={() => setCartOpen((open) => !open)} />
+      <CartPreview
+        items={cartItems}
+        isOpen={cartOpen}
+        onToggle={() => setCartOpen((open) => !open)}
+      />
     </div>
   )
 }
