@@ -1,7 +1,14 @@
+import { Route, Routes } from 'react-router-dom'
 import { HomePage } from './pages/HomePage'
+import { StoreDemoPage } from './pages/StoreDemoPage'
 
 function App() {
-  return <HomePage />
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/loja-demo" element={<StoreDemoPage />} />
+    </Routes>
+  )
 }
 
 export default App

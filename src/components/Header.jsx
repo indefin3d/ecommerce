@@ -1,4 +1,5 @@
 import { Menu, Sparkles } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { Button } from './ui/Button'
 
 const navItems = ['Produto', 'Recursos', 'Integracoes', 'Planos', 'Contato']
@@ -30,6 +31,12 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
+          <Link
+            to="/loja-demo"
+            className="inline-flex items-center justify-center rounded-full border border-white/14 bg-white/6 px-5 py-3 text-sm font-semibold tracking-[0.01em] text-slate-100 backdrop-blur-xl transition-all duration-300 hover:border-sky-300/30 hover:bg-white/10"
+          >
+            Ver loja demo
+          </Link>
           <Button variant="ghost">Entrar</Button>
           <Button>Criar Loja</Button>
         </div>
