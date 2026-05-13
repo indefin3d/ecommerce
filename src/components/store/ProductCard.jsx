@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { CreditCard, ShoppingCart, Star } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 function formatPrice(value) {
   return new Intl.NumberFormat('pt-BR', {
@@ -26,18 +27,23 @@ export function ProductCard({ product, onAddToCart }) {
         <div className="absolute right-4 top-4 z-10 rounded-full bg-white/92 px-3 py-1 text-xs font-semibold text-slate-900 shadow-[0_10px_24px_rgba(148,163,184,0.18)]">
           {product.badge}
         </div>
-        <div className="overflow-hidden rounded-[1.8rem] bg-white shadow-[inset_0_1px_0_rgba(255,255,255,0.6)]">
+        <Link
+          to={`/loja-demo/produto/${product.slug}`}
+          className="block overflow-hidden rounded-[1.8rem] bg-white shadow-[inset_0_1px_0_rgba(255,255,255,0.6)]"
+        >
           <img
             src={product.image}
             alt={product.name}
             className="h-72 w-full object-cover transition duration-500 group-hover:scale-[1.03]"
           />
-        </div>
+        </Link>
       </div>
 
       <div className="p-6">
         <p className="text-xs font-medium uppercase tracking-[0.18em] text-slate-400">{product.category}</p>
-        <h3 className="mt-2 text-xl font-semibold text-slate-950">{product.name}</h3>
+        <Link to={`/loja-demo/produto/${product.slug}`} className="mt-2 block text-xl font-semibold text-slate-950">
+          {product.name}
+        </Link>
         <p className="mt-3 text-sm leading-7 text-slate-500">{product.description}</p>
 
         <div className="mt-4 flex items-center gap-1">
