@@ -29,12 +29,12 @@ export function CartPreview({ items, isOpen, onToggle }) {
             initial={{ opacity: 0, x: 24 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 24 }}
-            className="fixed bottom-20 right-4 z-40 w-[calc(100%-2rem)] max-w-sm rounded-[2rem] border border-slate-200 bg-white p-5 shadow-[0_30px_80px_rgba(15,23,42,0.2)] lg:bottom-6 lg:right-6"
+            className="fixed bottom-20 right-4 z-40 w-[calc(100%-2rem)] max-w-sm rounded-[2rem] border border-slate-200/80 bg-white/96 p-5 shadow-[0_30px_80px_rgba(15,23,42,0.16)] backdrop-blur-xl lg:bottom-6 lg:right-6"
           >
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-lg font-semibold text-slate-950">Carrinho visual</p>
-                <p className="text-sm text-slate-500">Simulacao de compra do cliente</p>
+                <p className="text-sm text-slate-500">Simulação de compra do cliente</p>
               </div>
               <button
                 type="button"
@@ -48,7 +48,7 @@ export function CartPreview({ items, isOpen, onToggle }) {
               {items.map((item) => (
                 <div
                   key={item.id}
-                  className="rounded-[1.4rem] border border-slate-200 bg-slate-50 px-4 py-3"
+                  className="rounded-[1.4rem] border border-slate-200 bg-[#faf7f2] px-4 py-3"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div>

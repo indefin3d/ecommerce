@@ -6,20 +6,20 @@ import { ProductCard } from './ProductCard'
 export function ProductGrid({ onAddToCart }) {
   return (
     <>
-      <section id="produtos" className="px-4 py-16 sm:px-5 lg:px-8 lg:py-20">
+      <section id="produtos" className="px-4 py-20 sm:px-5 lg:px-8 lg:py-24">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-slate-400">Vitrine de produtos</p>
               <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 sm:text-4xl">
-                Produtos ficticios com estrutura real de ecommerce.
+                Produtos fictícios com estrutura real de e-commerce.
               </h2>
             </div>
             <p className="max-w-xl text-base leading-7 text-slate-500">
               Cards prontos para evoluir com backend, carrinho persistente, favoritos e filtros.
             </p>
           </div>
-          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {storeProducts.map((product, index) => (
               <motion.div
                 key={product.id}
@@ -35,33 +35,50 @@ export function ProductGrid({ onAddToCart }) {
         </div>
       </section>
 
-      <section id="ofertas" className="px-4 py-16 sm:px-5 lg:px-8 lg:py-20">
-        <div className="mx-auto max-w-7xl rounded-[2.25rem] border border-slate-200 bg-[linear-gradient(145deg,#0f172a_0%,#111827_60%,#1d4ed8_100%)] px-5 py-8 shadow-[0_30px_80px_rgba(15,23,42,0.18)] sm:px-7 lg:px-8">
+      <section id="ofertas" className="px-4 py-20 sm:px-5 lg:px-8 lg:py-24">
+        <div className="mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] border border-slate-200/70 bg-[#111827] shadow-[0_30px_90px_rgba(15,23,42,0.18)]">
+          <div className="grid xl:grid-cols-[0.9fr_1.1fr]">
+            <div className="relative min-h-[420px]">
+              <img
+                src={offerProducts[0].image}
+                alt="Oferta premium da semana"
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,24,39,0.1),rgba(17,24,39,0.78))]" />
+              <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
+                <div className="inline-flex items-center gap-2 rounded-full border border-white/14 bg-white/10 px-4 py-2 text-sm text-white backdrop-blur-md">
+                  <Flame className="h-4 w-4" />
+                  Ofertas da semana
+                </div>
+                <h2 className="mt-5 max-w-md text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
+                  Campanha visual com cara de e-commerce premium.
+                </h2>
+                <p className="mt-4 max-w-lg text-base leading-7 text-slate-300">
+                  Destaques promocionais com imagem forte, preço bem hierarquizado e CTA de compra limpo.
+                </p>
+              </div>
+            </div>
+            <div className="px-5 py-8 sm:px-7 lg:px-8">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/10 px-4 py-2 text-sm text-cyan-100">
-                <Flame className="h-4 w-4" />
-                Ofertas da semana
-              </div>
-              <h2 className="mt-5 text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
-                Promocoes com cara de campanha comercial pronta para conversao.
-              </h2>
+              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-slate-400">Seleção promocional</p>
+              <h3 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-white">
+                Peças com margem de destaque e leitura comercial imediata.
+              </h3>
             </div>
             <p className="max-w-xl text-base leading-7 text-slate-300">
-              Esta secao simula uma area de destaque promocional com leitura visual forte e foco comercial.
+              Esta seção simula uma campanha promocional pronta para produção, com visual mais editorial e menos cara de template.
             </p>
           </div>
           <div className="mt-10 grid gap-5 lg:grid-cols-2">
             {offerProducts.map((product) => (
               <div
                 key={`${product.id}-offer`}
-                className="overflow-hidden rounded-[1.9rem] border border-white/10 bg-white/8 p-5 backdrop-blur-md"
+                className="overflow-hidden rounded-[2rem] border border-white/8 bg-white/6 p-4 backdrop-blur-md"
               >
                 <div className="grid items-center gap-5 md:grid-cols-[0.9fr_1.1fr]">
-                  <div className={`rounded-[1.6rem] bg-gradient-to-br ${product.palette} p-5`}>
-                    <div className="mx-auto flex h-44 max-w-[220px] items-end justify-center rounded-[1.6rem] border border-white/24 bg-[linear-gradient(180deg,rgba(255,255,255,0.32),rgba(255,255,255,0.08))]">
-                      <div className="mb-6 h-24 w-24 rounded-full bg-[radial-gradient(circle_at_35%_35%,_rgba(255,255,255,0.92),_rgba(255,255,255,0.38)_30%,_rgba(15,23,42,0.3)_70%,_rgba(15,23,42,0.7)_100%)]" />
-                    </div>
+                  <div className="overflow-hidden rounded-[1.7rem]">
+                    <img src={product.image} alt={product.name} className="h-56 w-full object-cover" />
                   </div>
                   <div>
                     <span className="rounded-full bg-amber-300/18 px-3 py-1 text-xs font-semibold text-amber-200">
@@ -69,6 +86,7 @@ export function ProductGrid({ onAddToCart }) {
                     </span>
                     <h3 className="mt-4 text-2xl font-semibold text-white">{product.name}</h3>
                     <p className="mt-2 text-sm text-slate-300">{product.category}</p>
+                    <p className="mt-3 text-sm leading-7 text-slate-300">{product.description}</p>
                     <div className="mt-5 flex items-end gap-3">
                       <p className="text-3xl font-semibold text-white">
                         {new Intl.NumberFormat('pt-BR', {
@@ -96,6 +114,8 @@ export function ProductGrid({ onAddToCart }) {
                 </div>
               </div>
             ))}
+          </div>
+            </div>
           </div>
         </div>
       </section>

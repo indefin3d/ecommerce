@@ -1,33 +1,59 @@
+import categoryAcessorios from '../assets/store/category-acessorios.png'
+import categoryBeleza from '../assets/store/category-beleza.png'
+import categoryCasa from '../assets/store/category-casa.png'
+import categoryEletronicos from '../assets/store/category-eletronicos.png'
+import categoryEsportes from '../assets/store/category-esportes.png'
+import categoryModa from '../assets/store/category-moda.png'
+import heroBanner from '../assets/store/hero-banner.png'
+import lifestyleBanner from '../assets/store/lifestyle-banner.png'
+import productHeadphones from '../assets/store/product-headphones.png'
+import productHomeBeauty from '../assets/store/product-home-beauty.png'
+import productSneakers from '../assets/store/product-sneakers.png'
+
+export const storeHero = {
+  image: heroBanner,
+  offerImage: lifestyleBanner,
+  title: 'Produtos que deixam sua rotina mais bonita, precisa e desejável.',
+  description:
+    'A Urban Store mistura design, tecnologia e moda em uma experiência de compra com estética editorial e estrutura pronta para operação real.',
+}
+
 export const categories = [
   {
-    name: 'Eletronicos',
-    description: 'Audio, gadgets e tecnologia para rotina urbana.',
-    accent: 'from-sky-500/25 to-blue-600/10',
+    name: 'Eletrônicos',
+    slug: 'eletronicos',
+    description: 'Áudio, gadgets e tecnologia com acabamento premium.',
+    image: categoryEletronicos,
   },
   {
     name: 'Moda',
-    description: 'Pecas premium com leitura contemporanea.',
-    accent: 'from-fuchsia-500/20 to-rose-500/10',
+    slug: 'moda',
+    description: 'Peças urbanas com leitura limpa e sofisticação comercial.',
+    image: categoryModa,
   },
   {
     name: 'Casa',
-    description: 'Design funcional para ambientes sofisticados.',
-    accent: 'from-amber-400/20 to-orange-500/10',
+    slug: 'casa',
+    description: 'Objetos e iluminação para ambientes com identidade.',
+    image: categoryCasa,
   },
   {
     name: 'Beleza',
+    slug: 'beleza',
     description: 'Skincare e autocuidado com curadoria refinada.',
-    accent: 'from-pink-400/20 to-violet-500/10',
+    image: categoryBeleza,
   },
   {
     name: 'Esportes',
-    description: 'Performance, treino e movimento com estilo.',
-    accent: 'from-emerald-400/22 to-green-600/10',
+    slug: 'esportes',
+    description: 'Performance com design contemporâneo e leveza visual.',
+    image: categoryEsportes,
   },
   {
-    name: 'Acessorios',
-    description: 'Detalhes que elevam o dia a dia.',
-    accent: 'from-slate-300/18 to-slate-500/10',
+    name: 'Acessórios',
+    slug: 'acessorios',
+    description: 'Detalhes que fecham o look e elevam a experiência.',
+    image: categoryAcessorios,
   },
 ]
 
@@ -35,13 +61,14 @@ export const storeProducts = [
   {
     id: 'urban-headphone-x1',
     name: 'Headphone Urban X1',
-    category: 'Eletronicos',
+    category: 'Eletrônicos',
     price: 899,
     oldPrice: 1099,
     rating: 5,
     badge: '18% OFF',
-    highlight: true,
-    palette: 'from-sky-500 via-cyan-400 to-indigo-600',
+    image: productHeadphones,
+    tone: 'dark',
+    description: 'Cancelamento de ruído, acabamento fosco e presença premium.',
   },
   {
     id: 'jacket-noir',
@@ -51,55 +78,67 @@ export const storeProducts = [
     oldPrice: 599,
     rating: 4,
     badge: 'Mais vendido',
-    palette: 'from-zinc-600 via-slate-500 to-zinc-800',
+    image: categoryModa,
+    tone: 'light',
+    description: 'Camada principal para uma silhueta urbana e elegante.',
   },
   {
     id: 'lamp-aura',
-    name: 'Luminaria Aura Desk',
+    name: 'Luminária Aura Desk',
     category: 'Casa',
     price: 349,
     rating: 5,
     badge: 'Novo',
-    palette: 'from-amber-300 via-orange-300 to-stone-500',
+    image: categoryCasa,
+    tone: 'light',
+    description: 'Iluminação escultural para setup, leitura e ambiente.',
   },
   {
     id: 'serum-lumis',
-    name: 'Serum Lumis Repair',
+    name: 'Sérum Lumis Repair',
     category: 'Beleza',
     price: 189,
     oldPrice: 239,
     rating: 4,
     badge: 'Oferta',
-    palette: 'from-pink-300 via-rose-300 to-fuchsia-500',
+    image: productHomeBeauty,
+    tone: 'light',
+    description: 'Textura leve e visual premium para rotina de autocuidado.',
   },
   {
     id: 'sneaker-pulse',
-    name: 'Tenis Pulse Run Pro',
+    name: 'Tênis Pulse Run Pro',
     category: 'Esportes',
     price: 529,
     oldPrice: 679,
     rating: 5,
     badge: 'Lote limitado',
-    palette: 'from-emerald-300 via-teal-300 to-lime-500',
+    image: productSneakers,
+    tone: 'light',
+    description: 'Conforto de performance com perfil minimalista.',
   },
   {
     id: 'watch-orbit',
     name: 'Smartwatch Orbit S',
-    category: 'Acessorios',
+    category: 'Acessórios',
     price: 799,
     rating: 4,
     badge: 'Destaque',
-    palette: 'from-slate-300 via-sky-200 to-slate-600',
+    image: categoryAcessorios,
+    tone: 'light',
+    description: 'Design enxuto com leitura tecnológica e acabamento discreto.',
   },
   {
     id: 'speaker-wave',
     name: 'Speaker Wave Mini',
-    category: 'Eletronicos',
+    category: 'Eletrônicos',
     price: 279,
     oldPrice: 349,
     rating: 4,
     badge: '20% OFF',
-    palette: 'from-blue-500 via-sky-400 to-cyan-500',
+    image: categoryEletronicos,
+    tone: 'light',
+    description: 'Som compacto para espaços pequenos com visual premium.',
   },
   {
     id: 'bag-studio',
@@ -108,7 +147,9 @@ export const storeProducts = [
     price: 319,
     rating: 5,
     badge: 'Premium',
-    palette: 'from-stone-300 via-neutral-300 to-zinc-500',
+    image: categoryAcessorios,
+    tone: 'light',
+    description: 'Estrutura firme, presença elegante e uso cotidiano.',
   },
 ]
 
@@ -123,10 +164,10 @@ export const initialCartItems = [
   },
   {
     id: 'serum-lumis',
-    name: 'Serum Lumis Repair',
+    name: 'Sérum Lumis Repair',
     price: 189,
     quantity: 2,
   },
 ]
 
-export const paymentOptions = ['PIX', 'Cartao de credito', 'Boleto', 'Carteira digital']
+export const paymentOptions = ['PIX', 'Cartão de crédito', 'Boleto', 'Carteira digital']

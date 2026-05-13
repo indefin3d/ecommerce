@@ -42,7 +42,7 @@ export function StoreDemoPage() {
   )
 
   return (
-    <div className="min-h-screen bg-[linear-gradient(180deg,#fffdf8_0%,#ffffff_28%,#f8fafc_100%)] text-slate-950">
+    <div className="min-h-screen bg-[linear-gradient(180deg,#fffdf8_0%,#ffffff_25%,#faf7f2_68%,#f8fafc_100%)] text-slate-950">
       <StoreHeader cartCount={cartCount} />
       <main>
         <StoreHero />
