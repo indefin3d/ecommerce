@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { CreditCard, ShoppingCart, Star } from 'lucide-react'
+import { CreditCard, ShoppingCart } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 function formatPrice(value) {
@@ -45,18 +45,6 @@ export function ProductCard({ product, onAddToCart }) {
           {product.name}
         </Link>
         <p className="mt-3 text-sm leading-7 text-slate-500">{product.description}</p>
-
-        <div className="mt-4 flex items-center gap-1">
-          {Array.from({ length: 5 }).map((_, index) => (
-            <Star
-              key={`${product.id}-${index}`}
-              className={`h-4 w-4 ${
-                index < product.rating ? 'fill-amber-400 text-amber-400' : 'text-slate-200'
-              }`}
-            />
-          ))}
-          <span className="ml-2 text-sm text-slate-500">({product.rating}.0)</span>
-        </div>
 
         <div className="mt-5">
           <div className="flex items-end gap-3">

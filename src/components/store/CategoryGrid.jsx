@@ -15,17 +15,13 @@ export function CategoryGrid() {
   return (
     <section id="categorias" className="px-4 py-20 sm:px-5 lg:px-8 lg:py-24">
       <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-slate-400">Categorias</p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 sm:text-4xl">
-              Explore a loja como um ecommerce de verdade.
-            </h2>
-          </div>
-          <p className="max-w-xl text-base leading-7 text-slate-500">
-            Cada vitrine foi desenhada para se parecer com uma operação real de varejo digital.
-          </p>
+        <div className="max-w-2xl">
+          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-slate-400">Categorias</p>
+          <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 sm:text-4xl">
+            Explore a loja como um ecommerce de verdade.
+          </h2>
         </div>
+
         <div className="mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {categories.map((category, index) => {
             const Icon = icons[category.name]

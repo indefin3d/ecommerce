@@ -18,7 +18,7 @@ export function CartPreview({ items, isOpen, onToggle }) {
       <button
         type="button"
         onClick={onToggle}
-        className="fixed bottom-5 right-5 z-40 inline-flex items-center gap-3 rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white shadow-[0_20px_45px_rgba(15,23,42,0.25)] lg:hidden"
+        className="fixed bottom-5 right-5 z-[80] inline-flex items-center gap-3 rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white shadow-[0_20px_45px_rgba(15,23,42,0.25)] lg:hidden"
       >
         <ShoppingBag className="h-4 w-4" />
         Carrinho ({items.length})
@@ -30,7 +30,7 @@ export function CartPreview({ items, isOpen, onToggle }) {
             initial={{ opacity: 0, y: -12, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -12, scale: 0.98 }}
-            className="fixed right-4 top-20 z-40 w-[calc(100%-2rem)] max-w-sm rounded-[2rem] border border-slate-200/80 bg-white/96 p-5 shadow-[0_30px_80px_rgba(15,23,42,0.16)] backdrop-blur-xl lg:right-6 lg:top-24"
+            className="fixed right-4 top-20 z-[90] w-[calc(100%-2rem)] max-w-sm rounded-[2rem] border border-slate-200/80 bg-white/98 p-5 shadow-[0_40px_100px_rgba(15,23,42,0.22)] backdrop-blur-xl lg:right-6 lg:top-24"
           >
             <div className="flex items-center justify-between">
               <div>
@@ -45,6 +45,7 @@ export function CartPreview({ items, isOpen, onToggle }) {
                 <ChevronRight className="h-4 w-4" />
               </button>
             </div>
+
             <div className="mt-5 space-y-3">
               {items.map((item) => (
                 <div
@@ -63,6 +64,7 @@ export function CartPreview({ items, isOpen, onToggle }) {
                 </div>
               ))}
             </div>
+
             <div className="mt-5 rounded-[1.5rem] bg-slate-950 px-5 py-4 text-white">
               <div className="flex items-center justify-between text-sm">
                 <span className="text-slate-300">Subtotal</span>
@@ -70,7 +72,7 @@ export function CartPreview({ items, isOpen, onToggle }) {
               </div>
               <Link
                 to="/loja-demo/checkout"
-                className="mt-4 inline-flex w-full items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-950"
+                className="mt-4 inline-flex w-full items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold !text-slate-950"
               >
                 Finalizar compra
               </Link>
