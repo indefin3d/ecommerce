@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Flame } from 'lucide-react'
+import { Flame, Plus, ShoppingCart } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { offerProducts, storeProducts } from '../../data/storeProducts'
 import { ProductCard } from './ProductCard'
@@ -9,6 +9,30 @@ function formatPrice(value) {
     style: 'currency',
     currency: 'BRL',
   }).format(value)
+}
+
+function FlameBadge() {
+  return (
+    <div className="inline-flex items-center gap-2 rounded-full border border-white/14 bg-white/10 px-4 py-2 text-sm text-white backdrop-blur-md">
+      <motion.span
+        animate={{
+          rotate: [-6, 6, -4, 0],
+          scale: [1, 1.08, 0.98, 1],
+          filter: [
+            'drop-shadow(0 0 0px rgba(251,191,36,0.0))',
+            'drop-shadow(0 0 8px rgba(251,191,36,0.55))',
+            'drop-shadow(0 0 4px rgba(249,115,22,0.35))',
+            'drop-shadow(0 0 0px rgba(251,191,36,0.0))',
+          ],
+        }}
+        transition={{ duration: 1.8, repeat: Number.POSITIVE_INFINITY, ease: 'easeInOut' }}
+        className="inline-flex"
+      >
+        <Flame className="h-4 w-4 text-amber-300" />
+      </motion.span>
+      Ofertas da semana
+    </div>
+  )
 }
 
 export function ProductGrid({ onAddToCart }) {
@@ -49,10 +73,7 @@ export function ProductGrid({ onAddToCart }) {
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,24,39,0.08)_0%,rgba(17,24,39,0.28)_44%,rgba(17,24,39,0.84)_100%)]" />
               <div className="absolute inset-x-0 bottom-0 mx-auto max-w-3xl p-6 sm:p-8 xl:left-0 xl:max-w-none xl:p-14">
-                <div className="inline-flex items-center gap-2 rounded-full border border-white/14 bg-white/10 px-4 py-2 text-sm text-white backdrop-blur-md">
-                  <Flame className="h-4 w-4" />
-                  Ofertas da semana
-                </div>
+                <FlameBadge />
                 <h2 className="mt-6 max-w-[13ch] text-4xl font-semibold leading-[0.94] tracking-[-0.05em] text-white sm:text-5xl">
                   Campanha visual com leitura comercial premium.
                 </h2>
@@ -77,12 +98,12 @@ export function ProductGrid({ onAddToCart }) {
                 {offerProducts.map((product) => (
                   <div
                     key={`${product.id}-offer`}
-                    className="overflow-hidden rounded-[2rem] border border-white/8 bg-white/6 p-5 backdrop-blur-md"
+                    className="overflow-hidden rounded-[2rem] border border-white/8 bg-white/6 p-4 backdrop-blur-md"
                   >
-                    <div className="grid items-start gap-5 md:grid-cols-[124px_1fr]">
+                    <div className="grid items-start gap-4 md:grid-cols-[108px_1fr]">
                       <Link
                         to={`/loja-demo/produto/${product.slug}`}
-                        className="overflow-hidden rounded-[1.45rem] bg-white/5"
+                        className="overflow-hidden rounded-[1.25rem] bg-white/5"
                       >
                         <img src={product.image} alt={product.name} className="aspect-square w-full object-cover" />
                       </Link>
@@ -92,29 +113,31 @@ export function ProductGrid({ onAddToCart }) {
                         </span>
                         <Link
                           to={`/loja-demo/produto/${product.slug}`}
-                          className="mt-4 block text-[1.55rem] font-semibold leading-[1.06] !text-white transition hover:text-white/88"
+                          className="mt-3 block text-[1.35rem] font-semibold leading-[1.03] !text-white transition hover:text-white/88"
                         >
                           {product.name}
                         </Link>
-                        <p className="mt-2 text-sm text-slate-400">{product.category}</p>
-                        <div className="mt-5 space-y-1">
+                        <p className="mt-1 text-sm text-slate-400">{product.category}</p>
+                        <div className="mt-4 space-y-0.5">
                           {product.oldPrice && (
                             <p className="text-sm text-slate-500 line-through">{formatPrice(product.oldPrice)}</p>
                           )}
-                          <p className="text-[2rem] font-semibold tracking-[-0.03em] text-white">
+                          <p className="text-[1.9rem] font-semibold leading-none tracking-[-0.03em] text-white">
                             {formatPrice(product.price)}
                           </p>
                         </div>
-                        <div className="mt-3 text-sm text-slate-300">{formatPrice(product.pixPrice)} no PIX</div>
-                        <div className="mt-1 text-sm text-slate-400">
+                        <div className="mt-2 text-sm leading-5 text-slate-300">{formatPrice(product.pixPrice)} no PIX</div>
+                        <div className="mt-0.5 text-sm leading-5 text-slate-400">
                           ou {product.installments}x de {formatPrice(product.installmentValue)}
                         </div>
                         <button
                           type="button"
                           onClick={() => onAddToCart(product)}
-                          className="mt-6 inline-flex rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-950 transition hover:-translate-y-0.5"
+                          className="mt-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white text-slate-950 transition hover:-translate-y-0.5"
+                          aria-label={`Adicionar ${product.name} ao carrinho`}
                         >
-                          Adicionar ao carrinho
+                          <Plus className="h-4 w-4" />
+                          <ShoppingCart className="h-4 w-4" />
                         </button>
                       </div>
                     </div>

@@ -35,6 +35,30 @@ export function StoreDemoPage() {
     setCartOpen(true)
   }
 
+  function handleRemoveItem(itemId) {
+    setCartItems((currentItems) => currentItems.filter((item) => item.id !== itemId))
+  }
+
+  function handleDecreaseItem(itemId) {
+    setCartItems((currentItems) =>
+      currentItems.flatMap((item) => {
+        if (item.id !== itemId) {
+          return [item]
+        }
+
+        if (item.quantity <= 1) {
+          return []
+        }
+
+        return [{ ...item, quantity: item.quantity - 1 }]
+      }),
+    )
+  }
+
+  function handleClearCart() {
+    setCartItems([])
+  }
+
   const cartCount = useMemo(
     () => cartItems.reduce((sum, item) => sum + item.quantity, 0),
     [cartItems],
@@ -57,6 +81,9 @@ export function StoreDemoPage() {
         items={cartItems}
         isOpen={cartOpen}
         onToggle={() => setCartOpen((open) => !open)}
+        onRemoveItem={handleRemoveItem}
+        onDecreaseItem={handleDecreaseItem}
+        onClearCart={handleClearCart}
       />
     </div>
   )
