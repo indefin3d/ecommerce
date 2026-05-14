@@ -1,14 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import {
-  ChevronDown,
-  ChevronRight,
-  Headset,
-  Menu,
-  Search,
-  ShoppingBag,
-  User,
-  X,
-} from 'lucide-react'
+import { ChevronDown, ChevronRight, Headset, Menu, Search, ShoppingBag, User, X } from 'lucide-react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -70,10 +61,7 @@ export function StoreHeader({ cartCount, cartOpen, onCartClick }) {
               </span>
               <span className="leading-tight">
                 <span className="block text-xs text-slate-500">Central de</span>
-                <span className="inline-flex items-center gap-1 text-sm font-semibold">
-                  Atendimento
-                  <ChevronDown className="h-4 w-4 text-slate-500" />
-                </span>
+                <span className="text-sm font-semibold">Atendimento</span>
               </span>
             </button>
 
@@ -86,10 +74,7 @@ export function StoreHeader({ cartCount, cartOpen, onCartClick }) {
               </span>
               <span className="leading-tight">
                 <span className="block text-xs text-slate-500">Bem-vindo(a)</span>
-                <span className="inline-flex items-center gap-1 text-sm font-semibold">
-                  Entrar ou Cadastrar
-                  <ChevronDown className="h-4 w-4 text-slate-500" />
-                </span>
+                <span className="text-sm font-semibold">Entrar ou Cadastrar</span>
               </span>
             </button>
 
@@ -161,13 +146,13 @@ export function StoreHeader({ cartCount, cartOpen, onCartClick }) {
                     href={target}
                     className={`group relative inline-flex items-center gap-1 rounded-full px-4 py-2 transition ${
                       isOffer
-                        ? 'text-slate-950 hover:bg-slate-950 hover:text-white'
+                        ? 'bg-slate-950 text-white hover:bg-slate-950 hover:text-white'
                         : 'hover:bg-slate-950/[0.045]'
                     }`}
                   >
                     {isAllCategories && <Menu className="h-4 w-4" />}
                     <span>{item}</span>
-                    {(isAllCategories || ['Moda', 'Acessórios', 'Oferta'].includes(item)) && (
+                    {(isAllCategories || ['Moda', 'Acessórios'].includes(item)) && (
                       <ChevronDown className="h-4 w-4 opacity-70 transition group-hover:translate-y-[1px]" />
                     )}
                     {!isOffer && (

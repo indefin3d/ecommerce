@@ -13,8 +13,24 @@ const icons = {
 
 export function CategoryGrid() {
   return (
-    <section id="categorias" className="px-4 py-20 sm:px-5 lg:px-8 lg:py-24">
-      <div className="mx-auto max-w-7xl">
+    <section id="categorias" className="relative overflow-hidden bg-[#fbfaf7] px-4 py-20 sm:px-5 lg:px-8 lg:py-24">
+      <motion.div
+        animate={{ x: [0, 50, -10, 0], y: [0, -24, 18, 0] }}
+        transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: 'easeInOut' }}
+        className="absolute -left-24 top-16 h-72 w-72 rounded-full bg-[radial-gradient(circle,_rgba(148,163,184,0.14),_transparent_68%)]"
+      />
+      <motion.div
+        animate={{ x: [0, -42, 12, 0], y: [0, 30, -16, 0] }}
+        transition={{ duration: 24, repeat: Number.POSITIVE_INFINITY, ease: 'easeInOut' }}
+        className="absolute right-0 top-0 h-96 w-96 rounded-full bg-[radial-gradient(circle,_rgba(226,232,240,0.6),_transparent_70%)]"
+      />
+      <motion.div
+        animate={{ opacity: [0.18, 0.35, 0.18] }}
+        transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: 'easeInOut' }}
+        className="absolute inset-x-0 top-0 h-full bg-[linear-gradient(120deg,transparent_0%,rgba(255,255,255,0.55)_30%,transparent_55%)]"
+      />
+
+      <div className="relative mx-auto max-w-7xl">
         <div className="max-w-2xl">
           <p className="text-sm font-semibold uppercase tracking-[0.22em] text-slate-400">Categorias</p>
           <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 sm:text-4xl">
