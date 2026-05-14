@@ -16,12 +16,12 @@ export function StoreHero() {
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(15,23,42,0.84)_0%,rgba(15,23,42,0.56)_32%,rgba(15,23,42,0.2)_60%,rgba(15,23,42,0.04)_100%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.12),_transparent_28%)]" />
 
-      <div className="relative mx-auto flex min-h-[720px] max-w-7xl items-end px-4 pb-14 pt-12 sm:px-5 lg:min-h-[820px] lg:px-8 lg:pb-20 lg:pt-16">
+      <div className="relative mx-auto flex min-h-[720px] max-w-7xl items-center px-4 py-12 sm:px-5 lg:min-h-[820px] lg:px-8 lg:py-16">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="max-w-[760px]"
+          className="max-w-[760px] lg:-translate-y-10"
         >
           <p className="text-sm font-semibold uppercase tracking-[0.24em] text-white/75">
             Curadoria premium para rotina urbana
@@ -29,10 +29,10 @@ export function StoreHero() {
           <h1 className="mt-6 max-w-[11ch] text-4xl font-semibold leading-[0.96] tracking-[-0.055em] text-white sm:text-5xl xl:text-[4.2rem]">
             {storeHero.title}
           </h1>
-          <p className="mt-6 max-w-[560px] text-[15px] leading-7 text-slate-200 sm:text-base">
+          <p className="mt-5 max-w-[560px] text-[15px] leading-6 text-slate-200 sm:text-base">
             {storeHero.description}
           </p>
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <a
               href="#produtos"
               className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-slate-950 shadow-[0_18px_40px_rgba(15,23,42,0.28)] transition hover:-translate-y-0.5"

@@ -13,30 +13,30 @@ function getBadgeTheme(badge) {
   const key = badge.toLowerCase()
 
   if (key.includes('premium')) {
-    return 'bg-gradient-to-r from-violet-500/18 to-fuchsia-500/18 text-violet-200 border border-violet-300/18'
+    return 'bg-gradient-to-r from-violet-600 to-fuchsia-500 text-white border border-white/25'
   }
 
   if (key.includes('destaque')) {
-    return 'bg-gradient-to-r from-sky-500/18 to-cyan-500/18 text-sky-200 border border-sky-300/18'
+    return 'bg-gradient-to-r from-sky-600 to-cyan-500 text-white border border-white/25'
   }
 
   if (key.includes('lote')) {
-    return 'bg-gradient-to-r from-amber-500/18 to-yellow-500/18 text-amber-200 border border-amber-300/18'
+    return 'bg-gradient-to-r from-amber-500 to-yellow-400 text-slate-950 border border-white/30'
   }
 
   if (key.includes('off')) {
-    return 'bg-gradient-to-r from-emerald-500/18 to-lime-500/18 text-emerald-200 border border-emerald-300/18'
+    return 'bg-gradient-to-r from-emerald-500 to-lime-400 text-white border border-white/25'
   }
 
   if (key.includes('novo')) {
-    return 'bg-gradient-to-r from-indigo-500/18 to-blue-500/18 text-blue-200 border border-blue-300/18'
+    return 'bg-gradient-to-r from-indigo-600 to-blue-500 text-white border border-white/25'
   }
 
   if (key.includes('oferta')) {
-    return 'bg-gradient-to-r from-orange-500/18 to-rose-500/18 text-orange-200 border border-orange-300/18'
+    return 'bg-gradient-to-r from-orange-500 to-rose-500 text-white border border-white/25'
   }
 
-  return 'bg-gradient-to-r from-stone-500/18 to-slate-500/18 text-slate-200 border border-white/18'
+  return 'bg-gradient-to-r from-slate-700 to-slate-500 text-white border border-white/25'
 }
 
 function PixMark() {
@@ -89,7 +89,7 @@ export function ProductCard({ product, onAddToCart }) {
             )}
           </div>
 
-          <div className="mt-3 space-y-1.5 text-sm text-slate-500">
+          <div className="mt-2.5 space-y-1 text-sm text-slate-500">
             <div className="flex items-center gap-2">
               <PixMark />
               <span>
@@ -112,7 +112,7 @@ export function ProductCard({ product, onAddToCart }) {
         <button
           type="button"
           onClick={() => onAddToCart(product)}
-          className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-slate-950 px-5 py-3.5 text-sm font-semibold text-white transition hover:-translate-y-0.5"
+          className="mt-4 inline-flex w-full items-center justify-center rounded-full bg-slate-950 px-5 py-3.5 text-sm font-semibold text-white transition hover:-translate-y-0.5"
         >
           <ShoppingCart className="mr-2 h-4 w-4" />
           Adicionar ao carrinho

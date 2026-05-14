@@ -65,7 +65,7 @@ export function CategoryGrid() {
                     <Icon className="h-6 w-6" />
                   </div>
                   <h3 className="text-2xl font-semibold text-white">{category.name}</h3>
-                  <p className="mt-3 max-w-sm text-sm leading-7 text-slate-200">{category.description}</p>
+                  <p className="mt-2 max-w-sm text-sm leading-6 text-slate-200">{category.description}</p>
                 </div>
               </motion.article>
             )

@@ -15,30 +15,30 @@ function getBadgeTheme(badge) {
   const key = badge.toLowerCase()
 
   if (key.includes('premium')) {
-    return 'bg-gradient-to-r from-violet-500/18 to-fuchsia-500/18 text-violet-200 border border-violet-300/18'
+    return 'bg-gradient-to-r from-violet-600 to-fuchsia-500 text-white border border-white/25'
   }
 
   if (key.includes('destaque')) {
-    return 'bg-gradient-to-r from-sky-500/18 to-cyan-500/18 text-sky-200 border border-sky-300/18'
+    return 'bg-gradient-to-r from-sky-600 to-cyan-500 text-white border border-white/25'
   }
 
   if (key.includes('lote')) {
-    return 'bg-gradient-to-r from-amber-500/18 to-yellow-500/18 text-amber-200 border border-amber-300/18'
+    return 'bg-gradient-to-r from-amber-500 to-yellow-400 text-slate-950 border border-white/30'
   }
 
   if (key.includes('off')) {
-    return 'bg-gradient-to-r from-emerald-500/18 to-lime-500/18 text-emerald-200 border border-emerald-300/18'
+    return 'bg-gradient-to-r from-emerald-500 to-lime-400 text-white border border-white/25'
   }
 
   if (key.includes('oferta')) {
-    return 'bg-gradient-to-r from-orange-500/18 to-rose-500/18 text-orange-200 border border-orange-300/18'
+    return 'bg-gradient-to-r from-orange-500 to-rose-500 text-white border border-white/25'
   }
 
   if (key.includes('mais')) {
-    return 'bg-gradient-to-r from-yellow-500/18 to-amber-500/18 text-yellow-100 border border-yellow-300/18'
+    return 'bg-gradient-to-r from-yellow-500 to-amber-500 text-slate-950 border border-white/30'
   }
 
-  return 'bg-gradient-to-r from-stone-500/18 to-slate-500/18 text-slate-200 border border-white/18'
+  return 'bg-gradient-to-r from-slate-700 to-slate-500 text-white border border-white/25'
 }
 
 function FlameBadge() {
@@ -152,7 +152,7 @@ export function ProductGrid({ onAddToCart }) {
                         <motion.span
                           animate={{ y: [0, -2, 0], scale: [1, 1.03, 1] }}
                           transition={{ duration: 3.2, repeat: Number.POSITIVE_INFINITY, ease: 'easeInOut' }}
-                          className={`self-start rounded-full px-3 py-1 text-xs font-semibold ${getBadgeTheme(product.badge)}`}
+                          className={`self-start rounded-full px-3 py-1 text-xs font-semibold shadow-[0_12px_24px_rgba(15,23,42,0.24)] ${getBadgeTheme(product.badge)}`}
                         >
                           {product.badge}
                         </motion.span>
@@ -166,7 +166,7 @@ export function ProductGrid({ onAddToCart }) {
 
                         <p className="mt-2 text-[15px] text-slate-400">{product.category}</p>
 
-                        <div className="mt-4 space-y-0.5">
+                        <div className="mt-3 space-y-0">
                           {product.oldPrice && (
                             <p className="text-[15px] text-slate-500 line-through">{formatPrice(product.oldPrice)}</p>
                           )}
@@ -175,17 +175,17 @@ export function ProductGrid({ onAddToCart }) {
                           </p>
                         </div>
 
-                        <div className="mt-3 text-[15px] leading-5 text-slate-300">
+                        <div className="mt-2 text-[15px] leading-5 text-slate-300">
                           {formatPrice(product.pixPrice)} no PIX
                         </div>
-                        <div className="mt-1 text-[15px] leading-5 text-slate-400">
+                        <div className="mt-0.5 text-[15px] leading-5 text-slate-400">
                           ou {product.installments}x de {formatPrice(product.installmentValue)}
                         </div>
 
                         <button
                           type="button"
                           onClick={() => onAddToCart(product)}
-                          className="mt-auto inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white text-slate-950 transition hover:-translate-y-0.5"
+                          className="mt-5 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white text-slate-950 transition hover:-translate-y-0.5"
                           aria-label={`Adicionar ${product.name} ao carrinho`}
                         >
                           <Plus className="h-4 w-4" />
